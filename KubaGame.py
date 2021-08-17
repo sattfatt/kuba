@@ -495,55 +495,55 @@ class KubaGame:
 
 # uncomment the lines below to play the game in the console!
 
-#def play_game():
-#    print("Welcome to the Kuba Game!")
-#    print("Enter q to quit during game loop.")
-#    print('All inputs need to be in the form "name row,col direction"')
-#    print('Valid directions are: R,L,F,B')
-#    print("Player 1 has black marbles and Player 2 has white marbles.")
-#
-#    player_1 = input("Player 1 Name: ")
-#    player_2 = input("Player 2 Name: ")
-#
-#    kg = KubaGame((player_1,'B'),(player_2, 'W'))
-#    kg.print_board()
-#
-#    while(kg.get_winner() == None):
-#        # prompt user for moves
-#        user_input = input("name row,col direction: ")
-#        if user_input.lower() == "q":
-#            return
-#        inputs = user_input.split(' ')
-#        name = ""
-#        position = (0,0)
-#        direction = "F"
-#        try:
-#            name = inputs[0]
-#            position = eval(inputs[1])
-#            if len(position) != 2:
-#                print("invalid input!")
-#                continue
-#            direction = inputs[2]
-#        except:
-#            print("Input invalid!")
-#            continue
-#
-#        if not kg.make_move(name, position, direction):
-#            print()
-#            kg.print_board()
-#            print()
-#            print(kg.get_player_a().get_name(), " has: ", kg.get_player_a().get_captured_counts())
-#            print(kg.get_player_b().get_name(), " has: ", kg.get_player_b().get_captured_counts())
-#            print()
-#            print(kg.pop_error())
-#        else:
-#            print()
-#            kg.print_board()
-#            print()
-#            print(kg.get_player_a().get_name(), " has: ", kg.get_player_a().get_captured_counts())
-#            print(kg.get_player_b().get_name(), " has: ", kg.get_player_b().get_captured_counts())
-#    print()
-#    print("WINNER: ", kg.get_winner())
-#
-#if __name__ == "__main__":
-#    test_stuff()
+def play_game():
+    print("Welcome to the Kuba Game!")
+    print("Enter q to quit during game loop.")
+    print('All inputs need to be in the form "name row,col direction"')
+    print('Valid directions are: R,L,F,B')
+    print("Player 1 has black marbles and Player 2 has white marbles.")
+
+    player_1 = input("Player 1 Name: ")
+    player_2 = input("Player 2 Name: ")
+
+    kg = KubaGame((player_1,'B'),(player_2, 'W'))
+    kg.print_board()
+
+    while(kg.get_winner() == None):
+        # prompt user for moves
+        user_input = input("name row,col direction: ")
+        if user_input.lower() == "q":
+            return
+        inputs = user_input.split(' ')
+        name = ""
+        position = (0,0)
+        direction = "F"
+        try:
+            name = inputs[0]
+            position = eval(inputs[1])
+            if len(position) != 2:
+                print("invalid input!")
+                continue
+            direction = inputs[2]
+        except:
+            print("Input invalid!")
+            continue
+
+        if not kg.make_move(name, position, direction):
+            print()
+            kg.print_board()
+            print()
+            print(kg.get_player_a().get_name(), " has: ", kg.get_player_a().get_captured_counts())
+            print(kg.get_player_b().get_name(), " has: ", kg.get_player_b().get_captured_counts())
+            print()
+            print(kg.pop_error())
+        else:
+            print()
+            kg.print_board()
+            print()
+            print(kg.get_player_a().get_name(), " has: ", kg.get_player_a().get_captured_counts())
+            print(kg.get_player_b().get_name(), " has: ", kg.get_player_b().get_captured_counts())
+    print()
+    print("WINNER: ", kg.get_winner())
+
+if __name__ == "__main__":
+    play_game()
